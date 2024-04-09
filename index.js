@@ -20,7 +20,7 @@ const start = async () => {
       console.log("I am connected");
     });
 
-    cron.schedule("* * * * *", async () => {
+    cron.schedule("*/1 * * * *", async () => {
       const randomNumber = Math.floor(Math.random() * 10) + 1;
       const currentDate = new Date();
       // Get hours, minutes, and seconds
