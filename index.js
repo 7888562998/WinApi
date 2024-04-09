@@ -22,7 +22,17 @@ const start = async () => {
 
     cron.schedule("*/1 * * * *", async () => {
       const randomNumber = Math.floor(Math.random() * 10) + 1;
-      const currentDate = new Date();
+
+      const now = new Date();
+      const options = {
+        timeZone: 'Asia/Kolkata',
+        hour12: true,
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric'
+      };
+
+      const currentDate = now.toLocaleTimeString('en-IN', options);;
       // Get hours, minutes, and seconds
       var hours = currentDate.getHours();
       var minutes = currentDate.getMinutes();
