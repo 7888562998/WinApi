@@ -20,9 +20,11 @@ const start = async () => {
       console.log("I am connected");
     });
 
-    cron.schedule("*/1 * * * *", async () => {
+    cron.schedule("* * * * *", async () => {
       const randomNumber = Math.floor(Math.random() * 10) + 1;
-      const currentDate = new Date();
+      const currentDate = new Date()
+      console.log("currentDate",currentDate);
+      const getCurrentDate= currentDate.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
       // Get hours, minutes, and seconds
       var hours = currentDate.getHours();
       var minutes = currentDate.getMinutes();
@@ -38,7 +40,7 @@ const start = async () => {
 
       console.log("formattedDate",timeString);
       console.log("A cron job that runs every 2 seconds", randomNumber);
-      const newWinListSchema= new winListSchema({ randomNumber: randomNumber, createdDate: currentDate,createdTime:timeString});
+      const newWinListSchema= new winListSchema({ randomNumber: randomNumber, createdDate: getCurrentDate,createdTime:timeString});
       await newWinListSchema.save();
     });
   } catch (error) {

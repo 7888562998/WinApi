@@ -6,7 +6,7 @@ const winListSchema = new mongoose.Schema({
         required:true
     },
     createdDate: {
-        type:Date
+        type:String
     },
     createdTime: {
         type:String
